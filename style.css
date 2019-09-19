@@ -1,55 +1,57 @@
-.body_grid {
-  display: grid;
-  grid-template-columns: auto auto auto;
-  grid-template-rows: auto auto auto;
+* {
   margin: 0;
   padding: 0;
-  background-color: #F3F3F3;
+}
+
+.body_grid {
+  display: grid;
+  grid-template-columns: 1fr 5fr 1fr;
+  grid-template-rows: auto auto auto;
+  background-color: #DDEEEE;
 }
 
 .welcome_image {
-  display: block; 
-  margin: 0;
+  display: block;
   padding: 50px 0px;
   grid-column: 1 / 4;
   color: white;
   text-align: center;
-  font-weight: bold; 
+  font-weight: bold;
   font-size: 200%;
   background-image: linear-gradient(to bottom right, #FF00AA, #00FFAA);
 }
 
+/* NAVIGATION BAR TOP */
 .navigation_bar_top {
   display: block;
-  margin: 0;
-  padding: 0;
   grid-column: 1 / 4;
   color: white;
-  background-color: #888888;
+  background-color: #555555;
 }
-
-.navigation_bar_top_list {
+.navigation_bar_top ul {
   list-style-type: none;
-  margin: 0;
-  padding: 0;
 }
-
-.navigation_bar_top_list li {
+.navigation_bar_top ul li {
   display: inline-block;
-  margin: 0;
-  padding: 0px;
   border-right: 1px solid #FFFFFF;
-}
-
-.navigation_bar_top_list li a {
-  display: block;
-  margin: 0px;
   padding: 10px 10px;
+}
+.navigation_bar_top ul li a {
+  display: inline;
   text-align: center;
   text-decoration: none;
   color: white;
 }
+.navigation_bar_top ul li a:hover {
+  color: #00DDDD;
+}
 
-.navigation_bar_top_list li a:hover {
-  background-color: #333333;
+/* BACKGROUND */
+.background {
+  display:inline-block;
+  grid-column: 2 / 3;
+  margin: 20px;
+  background-color: white;
+  box-shadow: 1px 1px black;
+  height: 3000px;
 }
