@@ -5,15 +5,15 @@
 
 .body_grid {
     display: grid;
-    grid-template-columns: 1fr 5fr 1fr;
-    grid-template-rows: auto auto auto;
+    grid-template-columns: 1fr 20fr 1fr 5fr;
+    grid-template-rows: auto auto 40px auto;
     background-color: #DDEEEE;
 }
 
 .welcome_image {
     display: block;
-    padding: 50px 0px;
-    grid-column: 1 / 4;
+    padding: 80px 0px;
+    grid-column: 1 / 5;
     color: white;
     text-align: center;
     font-weight: bold;
@@ -23,30 +23,56 @@
 
 /* NAVIGATION BAR TOP */
 .navigation_bar_top {
-    display: block;
-    grid-column: 1 / 4;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    grid-column: 1 / 5;
     background-color: #555555;
     position: sticky;
     top: 0;
+    box-shadow: 0px 4px 5px black;
 }
 .navigation_bar_top a {
-    display: inline-block;
-    padding: 10px;
+    display: inline-box;
+    padding: 8px;
+    flex: 1 1;
     text-align: center;
     text-decoration: none;
-    color: white;
+    color: #FFFFFF;
 }
 .navigation_bar_top a:hover {
-    color: #00DDDD;
+    color: #FFFFFF;
     background-color: #333333;
+    text-shadow: 0px 0px 10px #FFFFFF;
+}
+
+/* SIDEBAR */
+.navigation_bar_side {
+    display: block;
+    grid-column: 4 / 5;
+    grid-row: 4 / 5;
+    height: 100px;
+    color: #FFFFFF;
+    background-color: #FFFFFF;
+    box-shadow: 0px 0px 10px 1px black;
+}
+
+.navigation_bar_side a {
+}
+
+.label {
+    display: block;
+    position: relative;
+    top: -50px;
+    visibility: hidden;
 }
 
 /* BACKGROUND */
 .background {
     display:inline-block;
     grid-column: 2 / 3;
-    margin: 20px;
+    grid-row: 4 / 5;
     background-color: white;
-    box-shadow: 1px 1px black;
+    box-shadow: 0px 0px 10px 1px black;
     height: 3000px;
 }
