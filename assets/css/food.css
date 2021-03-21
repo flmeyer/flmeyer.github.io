@@ -5,20 +5,19 @@
 
 .body_grid {
     display: grid;
-    grid-template-columns: 1fr 20fr 1fr;
-    grid-template-rows: auto auto 40px auto;
+    grid-template-columns: 1fr 6fr 1fr;
+    grid-template-rows: auto auto 50px auto;
     background-color: white;
 }
 
 .welcome_image {
     display: block;
-    padding: 80px 0px;
-    grid-column: 1 / 5;
-    color: black;
+    padding: 60px 0px;
+    grid-column: 1 / 4;
+    color: #407B38;
     text-align: center;
     font-weight: bold;
-    font-size: 200%;
-    /*background-image: linear-gradient(to bottom right, #FF00AA, #00FFAA);*/
+    font-size: 300%;
 }
 
 /* NAVIGATION BAR TOP */
@@ -26,7 +25,7 @@
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
-    grid-column: 1 / 5;
+    grid-column: 1 / 4;
     background-color: #00994d;
     position: sticky;
     top: 0;
@@ -49,8 +48,13 @@
 /* BACKGROUND */
 .background {
     display:inline-block;
-    grid-column: 2 / 3;
+    grid-column: 2 / 2;
     grid-row: 4 / 5;
     background-color: white;
     height: 3000px;
 }
+
+.background h1 {
+    color:  #407B38;
+}
+
