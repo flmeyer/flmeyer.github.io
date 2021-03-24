@@ -13,11 +13,17 @@
         Flanzi's Kitchen Blog &#8239; <span class="fas fa-leaf" style="color: #76E367"></span>
     </div>
     <div class="navigation_bar_top">
-        <a class="fas fa-home" style="font-size: 120%;" href="/index.html"> Home</a>
+        <a class="fas fa-home" href="/index.html"> Home</a>
     </div>
     <div class="background">
         <h1> {{page.title}} </h1>
-        {{ content }} 
+        <p> {% for tag in page.tags %}
+          <a class="tag" href="/food_az.html">{{tag}}</a>
+          {% endfor %}
+        </p> </br></br>
+
+        <h2> Gemüse </h2>
+        {{ content }}
     </div>
 </body>
 </html>
