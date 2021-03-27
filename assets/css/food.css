@@ -2,63 +2,87 @@
 * {
     margin: 0;
     padding: 0;
+    list-style-position: inside; 
 }
 
 .body_grid {
     display: grid;
+    grid-template-areas: "header header header" 
+                         "nav nav nav" 
+                         "side content dummy";  
     grid-template-columns: 1fr 2fr 1fr;
-    grid-template-rows: auto auto 50px auto;
-    background-color: white;
+    grid-template-rows: auto auto auto;
 }
 
+@media only screen and (max-width: 600px) {
+    .body_grid {
+        grid-template-areas: "header" 
+                             "nav" 
+                             "side" 
+                             "content";
+        grid-template-columns: 1fr; 
+    }
+}
+@media only screen and (min-width: 600px) and (max-width: 900px) {
+    .body_grid {
+        grid-template-areas: "header header" 
+                             "nav nav" 
+                             "side content";
+        grid-template-columns: 1fr 1fr; 
+    }
+}
+
+/* HEADER */ 
 .welcome_image {
+    grid-area: header; 
     display: block;
     padding: 60px 0px;
-    grid-column: 1 / 4;
     color: #407B38;
     text-align: center;
-    font-weight: bold;
     font-size: 300%;
 }
 
 /* NAVIGATION BAR TOP */
 .navigation_bar_top {
+    grid-area: nav; 
+    margin: 0px 0px 20px 0px; 
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
-    grid-column: 1 / 4;
-    background-color: #00994d;
     position: sticky;
     top: 0;
+    background-color: #00994d;
     box-shadow: 0px 3px 0px #001a0d;
 }
 .navigation_bar_top a {
     display: inline-box;
-    padding: 8px;
+    padding: 5px;
     flex: 1 1;
     text-align: center;
     text-decoration: none;
     font-size: 120%;
-    color: #FFFFFF;
+    color: white;
 }
 .navigation_bar_top a:hover {
-    color: #FFFFFF;
     background-color: #333333;
-    text-shadow: 0px 0px 10px #FFFFFF;
+}
+
+/* SIDEBAR */  
+.sidebar {
+    grid-area: side;
+    margin: 0px 20px;  
+    border: 2px solid #76E367;
+    border-radius: 20px;
+}
+.sidebar h2 {
+    text-align: center;
 }
 
 /* BACKGROUND */
-.background {
-    display:inline-block;
-    grid-column: 2 / 2;
-    grid-row: 4 / 5;
-    background-color: white;
-    height: 3000px;
-    margin: 10px;
-    padding: 10px;
+.content {
+    grid-area: content; 
 }
-
-.background h1 {
+.content h1 {
     color:  #407B38;
     margin-bottom: 5px;
 }
@@ -74,7 +98,6 @@
   text-align: center;
   text-decoration: none;
 }
-
 .tag:hover {
   background: #76E367;
   border: 2px solid #407B38;

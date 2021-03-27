@@ -14,10 +14,10 @@ spices:
   Salz: 1.5 TL
   Korianderpulver: 0.5 TL
   GaramMasala: 0.5 TL
-dairy:
+dairies:
   Milch: 2 L
   Sahne: 50 ml
-other:
+others:
   Pflanzennoel: 4 EL
 serves: 3
 prep_time: 30
@@ -28,15 +28,15 @@ tags: [vegetarisch, indisch]
 ---
 
 **Für den Paneer:**
-- Milch ({{page.dairy.Milch}}) zum Kochen bringen
+- Milch ({{page.dairies.Milch}}) zum Kochen bringen
 - Zitronensaft ({{page.vegetables.Zitronensaft}}) einrühren bis Milch gerinnt
 - Geronnene Milch in ein Musselintuch in ein feinmaschiges Sieb geben und 2 - 3 Minuten abtropfen lassen
 - Tuch zubinden, auspressen und auf einen Teller legen
 - Topf mit Wasser auf den Käse stellen
 
 **Für das Palak:**
-- Zwiebeln ({{page.vegetables.Zwiebeln}}) hacken und mit Kreuzkümmel ({{page.spices.Kreuzkuemmel}}) in Öl ({{page.other.Pflanzennoel}}) goldbraun braten
+- Zwiebeln ({{page.vegetables.Zwiebeln}}) hacken und mit Kreuzkümmel ({{page.spices.Kreuzkuemmel}}) in Öl ({{page.others.Pflanzennoel}}) goldbraun braten
 - Tomaten ({{page.vegetables.Tomaten}}) hacken und 5 Minuten mitkochen
 - Mit Chilipulver ({{page.spices.Chilipulver}}), Kurkuma ({{page.spices.Kurkuma}}) und Salz ({{page.spices.Salz}}) würzen
-- Spinat ({{page.vegetables.Spinat}}), Paneerstücke und Sahne ({{page.dairy.Sahne}}) 10 Minuten zugedeckt mit köcheln lassen
+- Spinat ({{page.vegetables.Spinat}}), Paneerstücke und Sahne ({{page.dairies.Sahne}}) 10 Minuten zugedeckt mit köcheln lassen
 - Korianderpulver ({{page.spices.Korianderpulver}}), Garam Masala ({{page.spices.GaramMasala}}) und Ingwer ({{page.vegetables.Ingwer}}) zugeben und einige Minuten köcheln lassen
