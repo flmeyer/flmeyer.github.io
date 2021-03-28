@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Flanzi's Kitchen Blog - {{page.title}}</title>
+    <title>Flanzi's Food Blog - {{page.title}}</title>
     <link rel = "stylesheet" type = "text/css" href = "/assets/css/food.css"/>
     <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0'/>
     <script src="https://kit.fontawesome.com/8167dbd281.js" crossorigin="anonymous"></script>
@@ -12,13 +12,11 @@
     {% include food_header.html %}
     {% include food_navigation_bar.html %}
 
-    <div class="content">
-        <h1> {{page.title}} </h1>
-        <p> {% for tag in page.tags %}
-          <a class="tag" href="/food_az.html">{{tag}}</a>
-          {% endfor %}
-        </p> </br></br>
+    <div class="content_header"> 
+        {% include food_overview.html %}
+    </div>
 
+    <div id="content">
         {{ content }}
     </div>
 
@@ -52,5 +50,6 @@
                     <li> {{ other[0] }} - {{ other[1] }} </li> 
                 {% endfor %} 
     </div> 
+
 </body>
 </html>

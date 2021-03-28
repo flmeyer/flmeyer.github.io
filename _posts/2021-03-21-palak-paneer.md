@@ -24,7 +24,7 @@ prep_time: 30
 rest_time: 120
 cook_time: 25
 reference: https://www.chefkoch.de/rezepte/1430761247928622/Palak-Paneer.html
-tags: [vegetarisch, indisch]
+tags: vegetarisch indisch test test2 test3 test4 test5 test6 test7 test8 test9 
 ---
 
 **Für den Paneer:**
