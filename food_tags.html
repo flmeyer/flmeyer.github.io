@@ -34,9 +34,11 @@ title: Flanzis Food Blog
     }
 </script>
 
-{% for tag in site.tags %} 
-    <button type="button" onclick="handleTagSelection(this)" class="tag">{{ tag[0] }}</button> 
-{% endfor %}
+<div class="tag_list">
+    {% for tag in site.tags %} 
+        <button type="button" onclick="handleTagSelection(this)" class="tag">{{ tag[0] }}</button> 
+    {% endfor %}
+</div>
 <br>
 
 <div id="post_list">
