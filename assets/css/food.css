@@ -137,3 +137,9 @@
     padding-right: 20px;
     color: #4d4d33;
 }
+
+#post_list {
+    display: flex; 
+    flex-wrap: wrap; 
+    flex-direction: column;
+}
