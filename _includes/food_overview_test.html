@@ -1,0 +1,15 @@
+<h2> {{include.page.title}} </h2>
+
+<div class="details_list">
+    <span class="detail"><i class="fas fa-utensils"> </i> {{ include.page.serves }}</span>
+    <span class="detail"><i class="fas fa-blender"> </i> {{  include.page.prep_time | plus: include.page.rest_time }} Min.</span>
+    <span class="detail"><i class="far fa-clock"> </i> {{ include.page.cook_time }} Min.</span>
+</div>
+ 
+<div class="tag_list">
+    {% for tag in include.page.tags %}
+        <a class="tag" href="/food_az.html">{{ tag }}</a>
+    {% endfor %}
+</div>
+
+

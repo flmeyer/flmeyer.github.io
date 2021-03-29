@@ -18,17 +18,17 @@ dairies:
   Milch: 2 L
   Sahne: 50 ml
 others:
-  Pflanzennoel: 4 EL
+  Pflanzenoel: 4 EL
 serves: 3
 prep_time: 30
 rest_time: 120
 cook_time: 25
 reference: https://www.chefkoch.de/rezepte/1430761247928622/Palak-Paneer.html
-tags: vegetarisch indisch test test2 test3 test4 test5 test6 test7 test8 test9 
+tags: vegetarisch indisch vegan 
 ---
 
 **Für den Paneer:**
-- Milch ({{page.dairies.Milch}}) zum Kochen bringen
+- <u>*Milch*</u> ({{page.dairies.Milch}}) zum Kochen bringen
 - Zitronensaft ({{page.vegetables.Zitronensaft}}) einrühren bis Milch gerinnt
 - Geronnene Milch in ein Musselintuch in ein feinmaschiges Sieb geben und 2 - 3 Minuten abtropfen lassen
 - Tuch zubinden, auspressen und auf einen Teller legen
