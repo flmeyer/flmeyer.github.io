@@ -1,0 +1,62 @@
+---
+layout: food_default 
+title: Flanzis Food Blog  
+---
+
+<script>
+    // stores all active tags 
+    var tagList = [] 
+
+    // Toggles the status and appearance of a tag 
+    function toggleTag(tag) {
+        if(tag.classList.contains("tag_active")) {
+            tag.classList.remove("tag_active");
+            tagList = tagList.filter(function(elem) {
+                return elem != tag.id; 
+            });
+        } else {
+            tag.classList.add("tag_active");  
+            tagList.push(tag.id); 
+        }
+    }
+
+    // Displays the recipe list for selected tags 
+    function displayRecipeList() { 
+        document.getElementById("post_list").innerHTML = ""; 
+        {% for post in site.posts %} 
+            var pageTags = []; 
+            {% for tag in post.tags %} 
+                pageTags.push("{{ tag }}");   
+            {% endfor %} 
+            if(tagList.length > 0 && tagList.every(v => pageTags.includes(v))) {
+                document.getElementById("post_list").innerHTML += `<a href="{{ post.url }}">{% include food_overview.html page=post %}</a>`;
+            }
+        {% endfor %}
+    }
+
+    // Check if tag parameter is present and set it 
+    window.onload = function() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const tagParam = urlParams.get("tag"); 
+        const tag = document.getElementById(tagParam); 
+        toggleTag(tag); 
+        displayRecipeList(); 
+    }; 
+
+    function handleTagSelection(tag) {
+        toggleTag(tag); 
+        displayRecipeList();  
+    }
+</script>
+
+<h1>Tags</h1>
+
+<div class="tag_list">
+    {% for tag in site.tags %} 
+        <button id="{{ tag[0] }}" type="button" class="tag" onclick="handleTagSelection(this)">{{ tag[0] }}</button> 
+    {% endfor %} 
+</div>
+
+<div id="post_list">
+</div> 
+

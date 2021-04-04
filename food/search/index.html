@@ -1,0 +1,122 @@
+---
+layout: food_default 
+title: Flanzis Food Blog  
+---
+
+<h1>Suche</h1>
+Inkludiert:
+<input type="search" id="search_field_included"></input>
+<div id="tag_list_included" class="tag_list">
+</div>
+
+<br>
+
+Exkludiert: 
+<input type="search" id="search_field_excluded"></input> 
+<div id="tag_list_excluded" class="tag_list">
+</div>
+
+<div id="nb_search_results">
+</div>
+<div id="search_results">
+</div> 
+
+<script>
+    keywords_included = [] 
+    keywords_excluded = [] 
+
+    // Displays the recipe list for selected tags 
+    function updateSearchResults() { 
+        document.getElementById("nb_search_results").innerHTML = ""; 
+        document.getElementById("search_results").innerHTML = "";
+
+        var nbSearchResults = 0;
+        {% for post in site.posts %} 
+            var pageKeywords = ["{{ post.title | downcase }}"];
+            {% for tag in post.tags %} 
+                pageKeywords.push("{{ tag | downcase }}");   
+            {% endfor %} 
+            {% for veggie in post.vegetables %} 
+                pageKeywords.push("{{ veggie[0] | downcase }}"); 
+            {% endfor %} 
+            {% for spice in post.spices %} 
+                pageKeywords.push("{{ spice[0] | downcase }}"); 
+            {% endfor %} 
+            {% for dairy in post.dairies %} 
+                pageKeywords.push("{{ dairy[0] | downcase }}"); 
+            {% endfor %} 
+            {% for other in page.others %} 
+                pageKeywords.push("{{ other[0] | downcase }}"); 
+            {% endfor %} 
+   
+            if(keywords_excluded.every(v => pageKeywords.findIndex(elem => elem.includes(v)) == -1) && keywords_included.every(v => pageKeywords.findIndex(elem => elem.includes(v)) != -1)) { 
+                nbSearchResults++;
+                document.getElementById("search_results").innerHTML += `<a href="{{ post.url }}">{% include food_overview.html page=post %}</a>`;
+            }
+        {% endfor %}
+
+        document.getElementById("nb_search_results").innerHTML = "Found " + nbSearchResults + " results ...";
+    }
+
+    function addKeyword(keyword, included) {
+        if(keyword === "") return;
+        const targetElementId = included ? "tag_list_included" : "tag_list_excluded";
+        document.getElementById(targetElementId).innerHTML += "<div class='keyword' id='" + keyword + "'>" + keyword + "<button onclick='handleKeywordRemove(this.parentElement)' type='reset' class='fas fa-times'></button></div>"; 
+        if(included) {
+            keywords_included.push(keyword); 
+        } else {
+            keywords_excluded.push(keyword); 
+        }
+        updateSearchResults(); 
+    }
+
+    function addKeywords(keywords, included) {
+        for(keyword in keywords) { 
+            addKeyword(keywords[keyword], included); 
+        }
+    }
+
+    function prepareKeywordsFromString(keywords) {
+        keywords = keywords.toLowerCase(); 
+        return keywords.split(" ");  
+    }
+
+    function handleKeywordRemove(keyword) {
+        if(keyword.parentElement.id === "tag_list_included") {
+            keywords_included = keywords_included.filter(function(elem) { 
+                return elem != keyword.id; 
+            });
+        } else {
+            keywords_excluded = keywords_excluded.filter(function(elem) { 
+                return elem != keyword.id; 
+            });
+        }
+        keyword.remove();
+        updateSearchResults(); 
+    }
+
+    // Check if keyword parameter is present and set it 
+    window.onload = function() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const keywords = prepareKeywordsFromString(urlParams.get("keywords")); 
+        addKeywords(keywords, true); 
+    };
+
+    document.querySelector("#search_field_included").addEventListener("keyup", event => {
+        if(event.key !== "Enter") return;
+        const keywords = prepareKeywordsFromString(document.querySelector("#search_field_included").value); 
+        addKeywords(keywords, true); 
+        document.querySelector("#search_field_included").value = "";
+        event.preventDefault(); 
+    });
+
+    document.querySelector("#search_field_excluded").addEventListener("keyup", event => {
+        if(event.key !== "Enter") return;
+        const keywords = prepareKeywordsFromString(document.querySelector("#search_field_excluded").value); 
+        addKeywords(keywords, false); 
+        document.querySelector("#search_field_excluded").value = "";
+        event.preventDefault(); 
+    });
+</script>
+
+
