@@ -1,7 +1,38 @@
-<nav class="navigation_bar_top">
-    <a href="/index.html"><i class="fas fa-home"></i> Home</a>
-    <a href="/food_tags.html"><i class="fas fa-tags"></i> Tags</a>
-    <a href="/food_az.html">New Recipes</a>
-    <a href="/food_az.html">Recipes (A-z)</a>
+<nav id="navigation_bar_top">
+    {% if page.url == "/food/" %}
+        <a href="/food/" class="active"><i class="fas fa-home"></i> Home</a>
+    {% else %} 
+        <a href="/food/"><i class="fas fa-home"></i> Home</a>
+    {% endif %} 
+
+    {% if page.url == "/food/tags/" %}
+        <a href="/food/tags/" class="active"><i class="fas fa-tags"></i> Tags</a>
+    {% else %} 
+        <a href="/food/tags/"><i class="fas fa-tags"></i> Tags</a>
+    {% endif %} 
+
+    {% if page.url == "/food/recent/" %} 
+        <a href="/food/recent/" class="active"><i class="fas fa-newspaper"></i> New Recipes</a>
+    {% else %} 
+        <a href="/food/recent/"><i class="fas fa-newspaper"></i> New Recipes</a>
+    {% endif %}
+
+    {% if page.url == "/food/atoz/" %}
+        <a href="/food/atoz/" class="active"><i class="fas fa-sort-alpha-up"></i> Recipes (A-z)</a>
+    {% else %} 
+        <a href="/food/atoz/"><i class="fas fa-sort-alpha-up"></i> Recipes (A-z)</a>
+    {% endif %} 
+
+    <span><i class="fas fa-search"></i> <input id="food_navigation_bar_search_field" type="search"></input></span>
 </nav>
  
+<script> 
+    // Start the search when "enter" is pressed 
+    document.querySelector("#food_navigation_bar_search_field").addEventListener("keyup", event => {
+        if(event.key !== "Enter") return;
+        window.location.href = "/food/search?keywords=" + document.querySelector("#food_navigation_bar_search_field").value; 
+        event.preventDefault(); 
+    });
+</script>
+
+
