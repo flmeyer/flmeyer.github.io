@@ -1,26 +1,26 @@
 <nav id="navigation_bar_top">
     {% if page.url == "/food/" %}
-        <a href="/food/" class="active"><i class="fas fa-home"></i> Home</a>
+        <a href="/food/" class="active"><i class="fas fa-home"></i> Start</a>
     {% else %} 
-        <a href="/food/"><i class="fas fa-home"></i> Home</a>
+        <a href="/food/"><i class="fas fa-home"></i> Start</a>
     {% endif %} 
 
     {% if page.url == "/food/tags/" %}
-        <a href="/food/tags/" class="active"><i class="fas fa-tags"></i> Tags</a>
+        <a href="/food/tags/" class="active"><i class="fas fa-tags"></i> Kategorien</a>
     {% else %} 
-        <a href="/food/tags/"><i class="fas fa-tags"></i> Tags</a>
+        <a href="/food/tags/"><i class="fas fa-tags"></i> Kategorien</a>
     {% endif %} 
 
     {% if page.url == "/food/recent/" %} 
-        <a href="/food/recent/" class="active"><i class="fas fa-newspaper"></i> New Recipes</a>
+        <a href="/food/recent/" class="active"><i class="fas fa-newspaper"></i> Neue Rezepte</a>
     {% else %} 
-        <a href="/food/recent/"><i class="fas fa-newspaper"></i> New Recipes</a>
+        <a href="/food/recent/"><i class="fas fa-newspaper"></i> Neue Rezepte</a>
     {% endif %}
 
     {% if page.url == "/food/atoz/" %}
-        <a href="/food/atoz/" class="active"><i class="fas fa-sort-alpha-up"></i> Recipes (A-z)</a>
+        <a href="/food/atoz/" class="active"><i class="fas fa-sort-alpha-up"></i> Rezepte (A-z)</a>
     {% else %} 
-        <a href="/food/atoz/"><i class="fas fa-sort-alpha-up"></i> Recipes (A-z)</a>
+        <a href="/food/atoz/"><i class="fas fa-sort-alpha-up"></i> Rezepte (A-z)</a>
     {% endif %} 
 
     <span><i class="fas fa-search"></i> <input id="food_navigation_bar_search_field" type="search"></input></span>

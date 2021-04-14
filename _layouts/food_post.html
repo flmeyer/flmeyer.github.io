@@ -20,7 +20,7 @@
         {{ content }}
     </div>
 
-    <div class="sidebar"> 
+    <div id="sidebar"> 
         <h2>Zutaten</h2> 
         <h3>Gemüse</h3> 
             <ul>
@@ -50,6 +50,15 @@
                     <li> {{ other[0] }} - {{ other[1] }} </li> 
                 {% endfor %} 
     </div> 
+
+    <div id="picture">
+        {% if page.image %} 
+            <img src="{{ page.image }}" alt="Ein Eindruck von {{ page.title }}">
+        {% endif %} 
+        {% if page.reference %} 
+            Das Originalrezept findet ihr <a href="{{ page.reference }}">hier</a>! 
+        {% endif %} 
+    </div>
 
 </body>
 </html>

@@ -1,12 +1,10 @@
 {% assign target_page = include.page | default: page %} 
-<h2> {{target_page.title}} </h2>
-
+<h1> {{target_page.title}} </h1>
 <div class="details_list">
-    <span class="detail"><i class="fas fa-utensils"> </i> {{ target_page.serves }}</span>
-    <span class="detail"><i class="fas fa-blender"> </i> {{  target_page.prep_time | plus: include.page.rest_time }} Min.</span>
-    <span class="detail"><i class="far fa-clock"> </i> {{ target_page.cook_time }} Min.</span>
+    <div class="detail"><i class="fas fa-utensils"> </i> {{ target_page.serves }}</div>
+    <div class="detail"><i class="fas fa-blender"> </i> {{  target_page.prep_time | plus: include.page.rest_time }} Min.</div>
+    <div class="detail"><i class="far fa-clock"> </i> {{ target_page.cook_time }} Min.</div>
 </div>
- 
 <div class="tag_list">
     {% for tag in target_page.tags %}
         <a class="tag" id="{{ tag }}" href="/food/tags?tag={{ tag }}">{{ tag }}</a>
