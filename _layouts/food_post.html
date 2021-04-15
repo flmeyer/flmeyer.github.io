@@ -1,12 +1,6 @@
 <!doctype html>
 <html>
-<head>
-    <meta charset="utf-8">
-    <title>Flanzi's Food Blog - {{page.title}}</title>
-    <link rel = "stylesheet" type = "text/css" href = "/assets/css/food.css"/>
-    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0'/>
-    <script src="https://kit.fontawesome.com/8167dbd281.js" crossorigin="anonymous"></script>
-</head>
+{% include food_head.html %} 
 
 <body class="body_grid">
     {% include food_header.html %}
@@ -56,9 +50,10 @@
             <img src="{{ page.image }}" alt="Ein Eindruck von {{ page.title }}">
         {% endif %} 
         {% if page.reference %} 
-            Das Originalrezept findet ihr <a href="{{ page.reference }}">hier</a>! 
+            Werft einen Blick auf das <a href="{{ page.reference }}">Originalrezept</a>! 
         {% endif %} 
     </div>
 
+    {% include food_footer.html %} 
 </body>
 </html>

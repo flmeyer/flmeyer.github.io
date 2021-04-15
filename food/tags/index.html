@@ -29,7 +29,7 @@ title: Flanzis Food Blog
                 pageTags.push("{{ tag }}");   
             {% endfor %} 
             if(tagList.length > 0 && tagList.every(v => pageTags.includes(v))) {
-                document.getElementById("post_list").innerHTML += `<a href="{{ post.url }}">{% include food_overview.html page=post %}</a>`;
+                document.getElementById("post_list").innerHTML += `<hr><table><tr><td style="width: 50%"><a href="{{ post.url }}">{% include food_overview.html page=post %}</a></td><td><img src="{{ post.image }}"></td></tr></table>`;
             }
         {% endfor %}
     }
