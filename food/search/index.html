@@ -61,7 +61,7 @@ Exkludiert:
     function addKeyword(keyword, included) {
         if(keyword === "") return;
         const targetElementId = included ? "tag_list_included" : "tag_list_excluded";
-        document.getElementById(targetElementId).innerHTML += "<div class='keyword' id='" + keyword + "'>" + keyword + "<button onclick='handleKeywordRemove(this.parentElement)' type='reset' class='fas fa-times'></button></div>"; 
+        document.getElementById(targetElementId).innerHTML += "<div class='tag' id='" + keyword + "'>" + keyword + "<button style='color: inherit; background-color: inherit; border: none; outline: none; padding-left: 5px;' onclick='handleKeywordRemove(this.parentElement)' type='reset' class='fas fa-times'></button></div>"; 
         if(included) {
             keywords_included.push(keyword); 
         } else {

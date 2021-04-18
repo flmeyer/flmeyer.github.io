@@ -1,0 +1,10 @@
+{% assign target_page = include.page | default: page %}
+
+<div class="overview">
+    <div> 
+        <a style="text-decoration: none;" href="{{ target_page.url }}">{% include food_overview.html page=target_page %}</a>
+    </div>
+    <div> 
+        <a href="{{ target_page.url }}"><img style="height: 160px;" src="{{ target_page.image }}"></a>
+    </div>
+</div>

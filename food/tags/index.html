@@ -29,7 +29,7 @@ title: Flanzis Food Blog
                 pageTags.push("{{ tag }}");   
             {% endfor %} 
             if(tagList.length > 0 && tagList.every(v => pageTags.includes(v))) {
-                document.getElementById("post_list").innerHTML += `<hr><table><tr><td style="width: 50%"><a href="{{ post.url }}">{% include food_overview.html page=post %}</a></td><td><img src="{{ post.image }}"></td></tr></table>`;
+                document.getElementById("post_list").innerHTML += `<hr>{% include food_overview_pic.html page=post %}`;
             }
         {% endfor %}
     }
@@ -49,11 +49,11 @@ title: Flanzis Food Blog
     }
 </script>
 
-<h1>Tags</h1>
+<h1>Kategorien</h1>
 
 <div class="tag_list">
     {% for tag in site.tags %} 
-        <button id="{{ tag[0] }}" type="button" class="tag" onclick="handleTagSelection(this)">{{ tag[0] }}</button> 
+        <div id="{{ tag[0] }}" class="tag" onclick="handleTagSelection(this)">{{ tag[0] }}</div>
     {% endfor %} 
 </div>
 

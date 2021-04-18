@@ -8,6 +8,7 @@
 /*-----PAGE-LAYOUT---------------------------------------------------*/
 .body_grid {
     display: grid;
+    min-height: 100vh;
     grid-template-areas: "header header header" 
                          "nav nav nav" 
                          "a content_header b" 
@@ -70,8 +71,14 @@ p {
     text-justify: inter-word;
 }
 hr {
-    margin: 20px 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 0%;
+    margin-right: 30%;
     border-top: 2px solid var(--primary-color);
+}
+img {
+    border-radius: 10%;
 }
 
 
@@ -156,7 +163,6 @@ hr {
     margin-bottom: 10px;
     max-height: 100%;
     max-width: 100%;
-    border-radius: 10%;
 }
 
 /*-----CONTENT-------------------------------------------------------------*/ 
@@ -165,7 +171,6 @@ hr {
     margin-top: 20px;
     margin-left: 5%;
     margin-right: 5%;
-    min-height: 300px;
 }
 #content li {
     margin-bottom: 10px;
@@ -184,12 +189,16 @@ hr {
     border-color: black;
     justify-content: center;
 }
-#footer a {
+#footer a, #footer div {
     padding-top: 5px;
     padding-bottom: 5px;
     padding-right: 40px;
     color: white;
     font-size: 80%;
+    text-decoration: none;
+}
+#footer a:hover {
+    font-size: 100%;
 }
 
 /*-----TAGS-----------------------------------------------------------------*/
@@ -220,25 +229,25 @@ hr {
     display: flex; 
     flex-wrap: wrap; 
     flex-direction: row;
-}   
+}
 .detail {
-    margin-right: 25px;
+    margin-right: 15px;
     margin-bottom: 10px;
     text-align: center;
     color: #4d4d33;
 }
 
-#post_list {
-    display: flex; 
-    flex-wrap: wrap; 
-    flex-direction: column;
+.overview {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border-left: solid;
+    color:  var(--secondary-color); 
+    padding-left: 30px;
 }
-#post_list h1 {
+.overview h1 {
     margin-bottom: 10px;
 }
-#post_list img { 
-    margin-bottom: 10px;
-    max-height: 50%;
-    max-width: 50%;
-    border-radius: 10%;
-} 
+
