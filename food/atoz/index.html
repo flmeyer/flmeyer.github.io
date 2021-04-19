@@ -3,7 +3,7 @@ layout: food_default
 title: Flanzis Kitchen Blog  
 ---
 
-<ul> 
+<div style="display: flex; flex-direction: row; flex-wrap: wrap;">
     {% assign sortedPosts = site.posts | sort: 'title' %}
     {% assign alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ" | split: "" %}
     {% for letter in alphabet %}
@@ -17,7 +17,9 @@ title: Flanzis Kitchen Blog
         {% if pre == false %} 
             {% continue %} 
         {% endif %} 
+        <div style="margin-bottom: 30px; margin-right: 30px;">
         <h1> {{ letter }} </h1>
+        <ul> 
         {% for post in sortedPosts %}
             {% assign post_letter = post.title | slice: 0 %}
             {% if  post_letter == letter %}
@@ -26,7 +28,8 @@ title: Flanzis Kitchen Blog
             </li>
             {% endif %} 
         {% endfor %}
+        </ul>
+        </div>
     {% endfor %}
-</ul> 
-
+</div>
 

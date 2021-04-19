@@ -52,7 +52,8 @@ title: Flanzis Food Blog
 <h1>Kategorien</h1>
 
 <div class="tag_list">
-    {% for tag in site.tags %} 
+    {% assign site_tags = site.tags | sort %}
+    {% for tag in site_tags %} 
         <div id="{{ tag[0] }}" class="tag" onclick="handleTagSelection(this)">{{ tag[0] }}</div>
     {% endfor %} 
 </div>

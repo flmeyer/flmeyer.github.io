@@ -4,20 +4,38 @@ title: Flanzis Food Blog
 ---
 
 <h1>Suche</h1>
-Inkludiert:
-<input type="search" id="search_field_included"></input>
-<div id="tag_list_included" class="tag_list">
+
+<div style="display: flex; flex-direction: row; flex-wrap: wrap;">
+<div style="margin-right: 100px;">
+<h2>Inkludierte Begriffe:</h2>
+<input type="search" id="search_field_included" style="margin-bottom: 20px;"></input>
+<div id="tag_list_included" class="tag_list"></div>
 </div>
 
-<br>
-
-Exkludiert: 
-<input type="search" id="search_field_excluded"></input> 
-<div id="tag_list_excluded" class="tag_list">
+<div>
+<h2>Exkludierte Begriffe:</h2> 
+<input type="search" id="search_field_excluded" style="margin-bottom: 20px;"></input> 
+<div id="tag_list_excluded" class="tag_list"></div>
 </div>
+</div>
+
+<h2>Maximale Kochzeit:</h2>
+
+<!-- retrieve maximum cooking time for slider -->
+{% assign maximum_cooking_time = 0 %}  
+{% for post in site.posts %} 
+    {% assign post_time = post.prep_time | plus: post.cook_time %}
+    {% if post_time > maximum_cooking_time %} 
+        {% assign maximum_cooking_time = post_time %} 
+    {% endif %} 
+{% endfor %} 
+
+<input type="range" min="1" max="{{ maximum_cooking_time }}" value="{{ maximum_cooking_time }}" id="cooking_time_slider" class="slider"><div style="margin-left: 10px; display: inline" id="cooking_time_slider_value">{{ maximum_cooking_time }}</div> Min.
+<hr>
 
 <div id="nb_search_results">
 </div>
+
 <div id="search_results">
 </div> 
 
@@ -50,8 +68,11 @@ Exkludiert:
             {% endfor %} 
    
             if(keywords_excluded.every(v => pageKeywords.findIndex(elem => elem.includes(v)) == -1) && keywords_included.every(v => pageKeywords.findIndex(elem => elem.includes(v)) != -1)) { 
-                nbSearchResults++;
-                document.getElementById("search_results").innerHTML += `<a href="{{ post.url }}">{% include food_overview.html page=post %}</a>`;
+                {% assign post_cooking_time = post.prep_time | plus: post.cook_time %} 
+                if({{ post_cooking_time }} <= document.querySelector("#cooking_time_slider").value) {  
+                    nbSearchResults++;
+                    document.getElementById("search_results").innerHTML += `<hr>{% include food_overview_pic.html page=post %}`;
+                }
             }
         {% endfor %}
 
@@ -117,6 +138,11 @@ Exkludiert:
         document.querySelector("#search_field_excluded").value = "";
         event.preventDefault(); 
     });
+
+    document.querySelector("#cooking_time_slider").addEventListener("input", () => {
+        document.querySelector("#cooking_time_slider_value").innerHTML = document.querySelector("#cooking_time_slider").value;  
+        updateSearchResults(); 
+    }); 
 </script>
 
 

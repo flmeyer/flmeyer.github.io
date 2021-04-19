@@ -20,9 +20,9 @@ dairies:
 others:
   Pflanzennoel: 4 EL
 serves: 3
-prep_time: 30
+prep_time: 10
 rest_time: 120
-cook_time: 25
+cook_time: 10
 reference: https://www.chefkoch.de/rezepte/1430761247928622/Palak-Paneer.html
 tags: [vegetarisch, indisch]
 ---
