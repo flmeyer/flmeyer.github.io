@@ -1,14 +1,6 @@
 <!doctype html>
 <html>
-<head>
-    {% include cookiebot.html %} 
-    {% include google_analytics.html %} 
-    <meta charset="utf-8">
-    <title>{{ page.title }}</title>
-    <link rel = "stylesheet" type = "text/css" href = ""/>
-    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0'/>
-    <script src="https://kit.fontawesome.com/8167dbd281.js" crossorigin="anonymous"></script>
-</head>
+{% include head.html %}
 
 <body>
     {{ content }} 
