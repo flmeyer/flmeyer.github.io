@@ -1,24 +1,6 @@
 ---
 layout: food_post
 author: Florian Meyer
-vegetables:
-  Zwiebeln: 200 g
-  Tomaten: 4
-  Spinat: 350 g
-  Ingwer: 2 cm
-  Zitronensaft: 6 EL
-spices:
-  Kreuzkuemmel: 1 TL
-  Chilipulver: 0.5 TL
-  Kurkuma: 0.5 TL
-  Salz: 1.5 TL
-  Korianderpulver: 0.5 TL
-  GaramMasala: 0.5 TL
-dairies:
-  Milch: 2 L
-  Sahne: 50 ml
-others:
-  Pflanzennoel: 4 EL
 serves: 3
 prep_time: 10
 rest_time: 120

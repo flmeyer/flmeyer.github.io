@@ -1,6 +1,6 @@
 <!doctype html>
 <html>
-{% include head.html %} 
+{% include food_head.html %} 
 
 <body class="body_grid">
     {% include food_header.html %}
@@ -13,9 +13,11 @@
     <div id="content">
         {{ content }}
     </div>
-
+    
+    {% if page.vegtables or page.spices or page.dairies or page.others %}
     <div id="sidebar"> 
         <h2>Zutaten</h2> 
+        {% if page.vegetables %}
         <h3>Gemüse</h3> 
             <ul>
                 {% assign vegetables = page.vegetables | sort %}
@@ -23,6 +25,8 @@
                     <li> {{ veggie[0] }} - {{ veggie[1] }} </li> 
                 {% endfor %} 
             </ul>  
+        {% endif %} 
+        {% if page.spices %} 
         <h3>Gewürze</h3> 
             <ul> 
                 {% assign spices = page.spices | sort %}
@@ -30,6 +34,8 @@
                     <li> {{ spice[0] }} - {{ spice[1] }} </li> 
                 {% endfor %} 
             </ul> 
+        {% endif %} 
+        {% if page.dairies %} 
         <h3>Milchprodukte</h3> 
             <ul>
                 {% assign dairies = page.dairies | sort %} 
@@ -37,13 +43,17 @@
                     <li> {{ dairy[0] }} - {{ dairy[1] }} </li> 
                 {% endfor %}
             </ul>
+        {% endif %} 
+        {% if page.others %}
         <h3>Sonstiges</h3> 
             <ul> 
                 {% assign others = page.others | sort %} 
                 {% for other in others %} 
                     <li> {{ other[0] }} - {{ other[1] }} </li> 
-                {% endfor %} 
+                {% endfor %}
+        {% endif %} 
     </div> 
+    {% endif %} 
 
     <div id="picture">
         {% if page.image %} 
