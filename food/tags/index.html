@@ -1,6 +1,6 @@
 ---
 layout: food_default 
-title: Flanzis Food Blog  
+title: Kategorien  
 ---
 
 <script>
@@ -9,6 +9,7 @@ title: Flanzis Food Blog
 
     // Toggles the status and appearance of a tag 
     function toggleTag(tag) {
+        if(tag != null) {
         if(tag.classList.contains("tag_active")) {
             tag.classList.remove("tag_active");
             tagList = tagList.filter(function(elem) {
@@ -17,6 +18,7 @@ title: Flanzis Food Blog
         } else {
             tag.classList.add("tag_active");  
             tagList.push(tag.id); 
+        }
         }
     }
 

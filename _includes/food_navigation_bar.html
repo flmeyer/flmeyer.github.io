@@ -5,6 +5,9 @@
         <a href="/food/"><i class="fas fa-home"></i> Home</a>
     {% endif %} 
 
+    <a href="javascript:void(0);" onclick="toggleCollapse()" class="mobile"><i class="fas fa-bars"></i></a>
+
+    <div id="hidden">
     {% if page.url == "/food/tags/" %}
         <a href="/food/tags/" class="active"><i class="fas fa-tags"></i> Kategorien</a>
     {% else %} 
@@ -24,9 +27,19 @@
     {% endif %} 
 
     <span><i class="fas fa-search"></i> <input id="food_navigation_bar_search_field" type="search"></input></span>
+    </div>
 </nav>
  
 <script> 
+    function toggleCollapse() {
+        var elem = document.getElementById("hidden");
+        if(elem.style.display === "none") {
+            elem.style.display = "inherit";
+        } else {
+            elem.style.display = "none"; 
+        }
+    }
+
     // Start the search when "enter" is pressed 
     document.querySelector("#food_navigation_bar_search_field").addEventListener("keyup", event => {
         if(event.key !== "Enter") return;

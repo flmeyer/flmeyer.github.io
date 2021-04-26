@@ -8,7 +8,7 @@
 /*-----PAGE-LAYOUT---------------------------------------------------*/
 .body_grid {
     display: grid;
-    min-height: 100vh;
+    min-height: 150vh;
     grid-template-areas: "header header header" 
                          "nav nav nav" 
                          "a content_header b" 
@@ -48,7 +48,7 @@
     padding: 0;
     /*list-style-position: inside;*/
     /*list-style-type: disclosure-closed;*/
-    font-family: Avantgarde, TeX Gyre Adventor, URW Gothic L, sans-serif;
+    /*font-family: Avantgarde, TeX Gyre Adventor, URW Gothic L, sans-serif;*/*/
 }
 ul,ol {
     padding-left: 18px;
@@ -102,7 +102,7 @@ img {
 }
 
 /*-----NAVIGATION-BAR-TOP------------------------------------------------*/
-#navigation_bar_top {
+#navigation_bar_top, #navigation_bar_top div {
     grid-area: nav;
     margin-bottom: 50px;
     display: flex;
@@ -117,22 +117,52 @@ img {
     background-color: var(--primary-color); 
     box-shadow: 0px 3px 0px #001a0d;
 }
-#navigation_bar_top a,span {
+#navigation_bar_top div {
+    font-size: 100%;
+}
+#navigation_bar_top a, span {
     flex: 1 1;
     padding: 5px;
     color: white;
     text-align: center;
     text-decoration: none;
 }
+#navigation_bar_top .mobile {
+    display: none;
+}
 #navigation_bar_top a:hover {
     background-color: #333333;
 }
 #navigation_bar_top  a.active {
     background-color: #333333;
-    text-decoration-line: underline overline;
+    /*text-decoration-line: underline overline;*/
     text-decoration-style: solid;
     text-underline-offset: 0.2em;
-} 
+}
+#navigation_bar_top #hidden {
+    display: flex;
+    flex: 5 1;
+    margin: 0;
+    padding: 0;
+}
+@media only screen and (max-width: 600px) {
+    #navigation_bar_top a {
+        flex: 4 1;
+    }
+    #navigation_bar_top .mobile {
+        display: flex; 
+        flex: 0 0;
+        padding: 5px 25px;
+        color: white;
+        text-align: center;
+        text-decoration: none;
+    }
+    #navigation_bar_top #hidden {
+        display: none; 
+        flex-direction: column;
+        flex-basis: 100%;
+    }
+}
 
 /*-----SIDEBAR------------------------------------------------------------*/  
 #sidebar {
@@ -195,11 +225,14 @@ img {
     padding-bottom: 5px;
     padding-right: 40px;
     color: white;
-    font-size: 80%;
+    font-size: 85%;
     text-decoration: none;
 }
+#footer div {
+    font-size: 90%;
+}
 #footer a:hover {
-    font-size: 100%;
+    font-size: 90%;
 }
 
 /*-----TAGS-----------------------------------------------------------------*/
