@@ -27,11 +27,12 @@
                              "content"
                              "footer";
         grid-template-columns: 1fr;
-        align-items: center;
-        justify-content: center;
+        grid-template-rows: auto auto auto auto auto 1fr auto;
+        /*align-items: center;*/
+        /*justify-content: center;*/
     }
 }
-@media only screen and (min-width: 600px) and (max-width: 900px) {
+/*@media only screen and (min-width: 600px) and (max-width: 900px) {
     .body_grid {
         grid-template-areas: "header header" 
                              "nav nav" 
@@ -40,7 +41,7 @@
                              "footer footer";
         grid-template-columns: 1fr 1fr; 
     }
-}
+}*/
 
 /*-----GENERAL-----------------------------------------------------*/
 * {
@@ -179,6 +180,7 @@ img {
 
 /*-----CONTENT-HEAD--------------------------------------------------------*/ 
 .content_header {
+    background-color: blue;
     grid-area: content_header;
     padding: 0% 5%;
 }
