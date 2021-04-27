@@ -180,7 +180,6 @@ img {
 
 /*-----CONTENT-HEAD--------------------------------------------------------*/ 
 .content_header {
-    background-color: blue;
     grid-area: content_header;
     padding: 0% 5%;
 }
