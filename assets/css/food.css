@@ -113,7 +113,7 @@ img {
     position: sticky;
     top: 0;
     border-top-style: solid;
-    border-width: 1px;
+    border-width: thin;
     border-color: black;
     background-color: var(--primary-color); 
     box-shadow: 0px 3px 0px #001a0d;
@@ -127,24 +127,29 @@ img {
     color: white;
     text-align: center;
     text-decoration: none;
+    border: none;
+    vertical-align: top;
 }
 #navigation_bar_top .mobile {
     display: none;
 }
-#navigation_bar_top a:hover {
-    background-color: #333333;
+@media(hover: hover) {
+    #navigation_bar_top a:hover {
+        background-color: #333333;
+    }
 }
 #navigation_bar_top  a.active {
     background-color: #333333;
-    /*text-decoration-line: underline overline;*/
+    /*text-decoration-line: underline overline;
     text-decoration-style: solid;
-    text-underline-offset: 0.2em;
+    text-underline-offset: 0.2em;*/
 }
 #navigation_bar_top #hidden {
     display: flex;
     flex: 5 1;
     margin: 0;
     padding: 0;
+    border: none;
 }
 @media only screen and (max-width: 600px) {
     #navigation_bar_top a {
@@ -217,7 +222,7 @@ img {
     flex-direction: row;
     background: var(--primary-color); 
     border-top-style: solid;
-    border-width: 1px;
+    border-width: thin;
     border-color: black;
     justify-content: center;
 }
@@ -243,6 +248,7 @@ img {
     flex-direction: row;
 }
 .tag {
+  cursor: pointer;
   border-radius: 5px;
   border: 2px solid var(--primary-color); 
   padding: 1px 5px;
@@ -252,11 +258,17 @@ img {
   text-align: center;
   text-decoration: none;
 }
-.tag_active,
-.tag:hover {
-  color: white;
-  background: var(--primary-color);
-  border: 2px solid var(--tertiary-color);
+.tag_active {
+    color: white;
+    background: var(--primary-color);
+    border: 2px solid var(--tertiary-color);
+}
+@media (hover: hover) {
+  .tag:hover {
+    color: white;
+    background: var(--primary-color);
+    border: 2px solid var(--tertiary-color);
+  }
 }
 
 /*-----RECIPE-DETAILS---------------------------------------------------------*/
@@ -311,4 +323,5 @@ img {
   background: #4CAF50;
   cursor: pointer;
 }
+
 
