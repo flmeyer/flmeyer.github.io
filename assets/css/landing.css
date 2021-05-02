@@ -1,0 +1,60 @@
+* {
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth; 
+}
+
+body {
+    overflow: hidden;
+}
+
+.page {
+    height: 100vh;
+    overflow-y: auto; 
+}
+
+#side_navigation {
+    background-color: rgba(5, 5, 5, 0.3);
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    position: fixed; 
+    right: 2%;
+    top: 50%;
+}
+
+#side_navigation a {
+    color: white; 
+    text-decoration: none; 
+    padding: 3px;
+}
+
+#me {
+    background-color: rgb(100, 100, 100);
+}
+
+#food {
+    background-image: url("/assets/images/landing/food.jpg");  
+    background-position: 0% 90%;
+    background-size: cover;
+    color: white;
+}
+
+#food h1 {
+    background-color: rgba(5, 5, 5, 0.3);
+    color: white; 
+    display: inline-block;
+    font-size: 300%;
+    margin: 5%; 
+    padding: 5px 10px;
+}
+
+#food h1 a {
+    color: white;
+}
+
+#test {
+    background-color: rgb(200, 0, 200); 
+}
+
+

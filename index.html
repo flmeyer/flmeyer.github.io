@@ -1,6 +1,67 @@
 ---
-layout: default 
+layout: landing 
 ---
+
+<div id="side_navigation">
+</div>
+
+<div id="me" class="page">
+    <h1> Test </h1>
+</div>
+
+<div id="food" class="page">
+    <h1>Flanzi's Food Blog</h1>
+    <br>
+    <h1><a href="/food/">Visit</a><h1>
+</div>
+
+<div id="test" class="page">
+    {% include food_footer.html %}
+</div>
+
+
+<!-- SCRIPTS --> 
+<script>
+    // scrolling between pages 
+    const pages = document.querySelectorAll(".page"); 
+    pages.forEach(page => {
+        page.addEventListener('wheel', event => {
+            if(event.deltaY > 0) {
+                for(var page_id = 0; page_id < pages.length-1; page_id++) {
+                    if(pages[page_id].id == page.id) {
+                        location.href = "#" + pages[page_id+1].id; 
+                        drawSidebar(page_id+1);
+                        break;
+                    }
+                }
+            } else {
+                for(var page_id = pages.length-1; page_id > 0; page_id--) {
+                    if(pages[page_id].id == page.id) {
+                        location.href = "#" + pages[page_id-1].id; 
+                        drawSidebar(page_id-1); 
+                        break;
+                    }
+                }
+            }
+        }); 
+    }); 
+
+    // navigation sidebar
+    function drawSidebar(active_page_id) {
+        const nav = document.querySelector("#side_navigation");
+        nav.innerHTML = "";
+        for(var page_id = 0; page_id < pages.length; page_id++) {
+            if(page_id == active_page_id) {   
+                nav.innerHTML += '<a href="#' + pages[page_id].id + '" onclick="drawSidebar(' + page_id + ')"><i class="fa fa-circle"></i></a>';
+            } else {
+                nav.innerHTML += '<a href="#' + pages[page_id].id + '" onclick="drawSidebar(' + page_id + ')"><i class="far fa-circle"></i></a>';
+            }
+        }
+    }
+    drawSidebar(0);
+  </script>
+<!-- SCRIPTS END --> 
+
 
 
 
