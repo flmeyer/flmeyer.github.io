@@ -1,15 +1,57 @@
 ---
-layout: default
+layout: page 
 ---
-  <main class="content" style="padding: 2rem;">
-    <h1>{{ page.title }}</h1>
-    <p><strong>Author(s):</strong> {{ page.authors }}</p>
-    <p><strong>Published in:</strong> {{ page.published_in }}</p>
-    <p><strong>Year:</strong> {{ page.year }}</p>
-    {% if page.link %}
-    <p><strong>Link:</strong> <a href="{{ page.link }}" target="_blank">View Publication</a></p>
-    {% endif %}
-    <div>
-      {{ content }}
-    </div>
-  </main>
+
+<style>
+  .publication-stats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  .stat {
+    display: flex;
+    align-items: center;
+  }
+  .stat-icon {
+    font-size: 20px;
+    margin-right: 8px;
+  }
+  .stat-text {
+    font-size: 16px;
+  }
+</style>
+
+<div class="publication-stats">
+  <div class="stat">
+    <i class="stat-icon fas fa-users"></i>
+    <span class="stat-text">{{ page.authors }}</span>
+  </div>
+  <div class="stat">
+    <i class="stat-icon fas fa-book"></i>
+    <span class="stat-text">{{ page.published_in }}</span>
+  </div>
+  <div class="stat">
+    <i class="stat-icon fas fa-calendar"></i>
+    <span class="stat-text">{{ page.month }} {{ page.year }}</span>
+  </div>
+  {% if page.link %}
+  <div class="stat">
+    <i class="stat-icon fas fa-file"></i>
+    <span class="stat-text"><a href="{{ page.link }}" target="_blank">PDF</a></span>
+  </div>
+  {% endif %}
+  {% if page.doi %}
+  <div class="stat">
+    <i class="stat-icon fas fa-file"></i>
+    <span class="stat-text"><a href="https://doi.org/{{ page.doi }}" target="_blank"> {{ page.doi }} </a></span>
+  </div>
+  {% endif %}
+</div>
+
+<div style="text-align: justify; margin-top: 3em">
+  {{ content }}
+</div>
+
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
