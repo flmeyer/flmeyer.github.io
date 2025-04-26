@@ -1,44 +1,49 @@
+// Global configuration 
+
+:root {
+  text-align: justify;
+}
+
+// Title 
+
 .site-title {
   display: inline-flex;
   align-items: center;
 }
 
-.site-title::before {
+/*.site-title::before {
   content: '';
   display: inline-block;
-  width: 3em;
-  height: 3em;
+  width: 2em;
+  height: 2em;
   margin-right: 1em;
   background-image: url(/favicon.ico);
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
   vertical-align: middle;
+}*/
+
+.site-nav {
+  vertical-align: middle;
 }
 
 // PUBLICATIONS 
+
 :root {
   --card-bg-light: #f9f9f9;
   --card-bg-dark: #333;
-  --text-color-light: #000;
-  --text-color-dark: #fff;
-  --link-color-light: #007acc;
-  --link-color-dark: #66b2ff;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --card-bg: var(--card-bg-dark);
-    --text-color: var(--text-color-dark);
-    --link-color: var(--link-color-dark);
   }
 }
 
 @media (prefers-color-scheme: light) {
   :root {
     --card-bg: var(--card-bg-light);
-    --text-color: var(--text-color-light);
-    --link-color: var(--link-color-light);
   }
 }
 
@@ -64,13 +69,13 @@
 .publication-title {
   font-size: 1.2em;
   font-weight: bold;
-  color: var(--link-color);
+  color: var(--minima-link-color);
   text-decoration: none;
 }
 
 .publication-details {
   margin-top: 0.5em;
-  color: var(--text-color);
+  color: var(--minima-text-color);
 }
 
 .publication-details div {
@@ -92,4 +97,23 @@
   left: 0;
   width: 100%;
   height: 100%;
+}
+
+// resume 
+
+.base-information {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: $spacing-unit;
+}
+
+.profile-picture {
+  width: 180px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 1rem;
+  border: 4px solid #333;
 }

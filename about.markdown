@@ -1,73 +1,85 @@
 ---
-layout: page
+layout: base 
 title: About
 permalink: /about/
 ---
 
-## John Doe
+<div class="base-information"> 
+  <div>
+    <img src="/assets/meyer.jpg" alt="Florian Meyer" class="profile-picture"/>
+  </div>
+  <div markdown="1">
 
-**Email:** john.doe@example.com  
-**Phone:** (123) 456-7890  
-**LinkedIn:** [linkedin.com/in/johndoe](https://linkedin.com/in/johndoe)  
-**GitHub:** [github.com/johndoe](https://github.com/johndoe)
+  <h1>Florian Meyer</h1>
+
+  **Email:** [florian.meyer.hh@gmail.com](mailto:florian.meyer.hh@gmail.com)  
+  **Location:** Hamburg
+  
+  </div>
+</div>
+
+---
+
+
+
+## Work Experience
+
+**Software Engineer**  
+*freiheit.com technologies gmbh*  
+*09/2022 – Present*  
+- Plan, design, and implement large-scale software solutions based on microservice architectures  
+- Ensure project delivery on schedule, within budget, and meeting the highest quality standards
+
+**Teaching and Research Assistant**  
+*Hamburg University of Technology*  
+*04/2018 – 04/2022*  
+- Development on the open-source project openDSME  
+- Research in Industrial Internet of Things (IIoT) and Machine Learning (ML)  
+- Teaching, thesis supervision, and project work
+
+**Teaching Assistant for Computer Engineering**  
+*Hamburg University of Applied Sciences*  
+*09/2014 – 09/2015*  
+- Design and implementation of theoretical exercises  
+- Mentoring during software labs
 
 ---
 
 ## Education
 
-**Bachelor of Science in Computer Science**  
-University of Example, City, State  
-Graduated: May 2020
+**Doctorate in Industrial Internet of Things (Dr.-Ing.)**  
+*Hamburg University of Technology*  
+*04/2018* - *12/2022* 
+- Dissertation: *Adaptive Multi-hop Networks for Industrial Applications with Dynamically Changing Traffic*  
+- Topics: Network simulation, hardware deployments, ML for embedded systems, IEEE 802.15.4 DSME  
+
+**Semester Abroad**  
+*National University of Singapore*  
+*01/2017 – 06/2017*
+
+**Master of Computer Science (M.Sc.)**  
+*Hamburg University of Technology*  
+*09/2015 – 03/2018*  
+- Specialization: Computer and Software Engineering  
+- Grade: 1.4
+
+**Bachelor of Computer Engineering (B.Sc.)**  
+*Hamburg University of Applied Sciences*  
+*08/2012 – 09/2015*  
+- Grade: 1.6
+
+**Allgemeine Hochschulreife**  
+*Gymnasium Halepaghen Schule, Buxtehude*  
+*08/2004 – 07/2012*  
+- Grade: 2.6
 
 ---
 
-## Experience
+## Honors and Awards
 
-**Software Engineer**  
-Example Corp, City, State  
-June 2020 - Present
+**Best Paper Award**  
+*International Conference on Ad-Hoc Networks and Wireless (AdHoc-Now), 2021*  
 
-- Developed and maintained web applications using JavaScript, React, and Node.js.
-- Collaborated with cross-functional teams to design and implement new features.
-- Improved application performance by 20% through code optimization.
+**Performance-based Scholarship**  
+*German National Academic Foundation (01/2015 – 03/2018)*
 
-**Intern**  
-Tech Solutions, City, State  
-Summer 2019
-
-- Assisted in the development of a mobile application using Flutter.
-- Conducted testing and debugging to ensure application quality.
-
----
-
-## Skills
-
-- Programming Languages: Python, JavaScript, Java
-- Web Technologies: HTML, CSS, React, Node.js
-- Tools: Git, Docker, Jenkins
-
----
-
-## Projects
-
-**Project Name**  
-Description of the project and technologies used.
-
-**Another Project**  
-Description of the project and technologies used.
-
----
-
-## Certifications
-
-- Certified Kubernetes Administrator (CKA)
-- AWS Certified Solutions Architect
-
----
-
-## Languages
-
-- English (Native)
-- Spanish (Fluent)
-
----

@@ -19,6 +19,5 @@ permalink: /publications/
   </a>
   </div>
   {% endfor %}
----
 {% endfor %}
 
