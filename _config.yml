@@ -1,1 +1,43 @@
+title: Florian Meyer
+author:
+  name: Florian Meyer
+  email: florian.meyer.hh@gmail.com
+description: >-
+  Florian Meyer is a software engineer specializing in full-stack development and microservice architecture, with a strong passion for AI and modern, innovative work methodologies.
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "" # the base hostname & protocol for your site, e.g. http://example.com
+
+# Build settings
+theme: minima
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
+minima:
+  skin: auto
+  show_excerpts: true 
+  hide_site_feed_link: true
+  social_links:
+    - title: Florian Meyer on GitHub
+      icon: github
+      url: "https://github.com/flmeyer"
+    - title: Florian Meyer on LinkedIn 
+      icon: linkedin-in 
+      url: "https://www.linkedin.com/in/florian-meyer-b1542b117"
+    - title: Florian Meyer on Google Scholar 
+      icon: google-scholar 
+      url: "https://scholar.google.com/citations?hl=en&user=jJoLCvsAAAAJ"
+ 
+
+sass:
+  quiet_deps: true
+  silence_deprecations: [import]
+
+collections:
+  publications:
+    output: true
+
+header_pages:
+  - publications.markdown
+  - about.markdown
 

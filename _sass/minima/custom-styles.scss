@@ -1,0 +1,119 @@
+// Global configuration 
+
+:root {
+  text-align: justify;
+}
+
+// Title 
+
+.site-title {
+  display: inline-flex;
+  align-items: center;
+}
+
+/*.site-title::before {
+  content: '';
+  display: inline-block;
+  width: 2em;
+  height: 2em;
+  margin-right: 1em;
+  background-image: url(/favicon.ico);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  vertical-align: middle;
+}*/
+
+.site-nav {
+  vertical-align: middle;
+}
+
+// PUBLICATIONS 
+
+:root {
+  --card-bg-light: #f9f9f9;
+  --card-bg-dark: #333;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --card-bg: var(--card-bg-dark);
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --card-bg: var(--card-bg-light);
+  }
+}
+
+.publication-card {
+  display: block;
+  padding: 1em;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-bottom: 2em;
+  background-color: var(--card-bg);
+  transition: transform 0.2s, background-color 0.2s;
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+}
+
+.publication-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 8px rgba(0, 0, 0, 0.2);
+  text-decoration: none;
+}
+
+.publication-title {
+  font-size: 1.2em;
+  font-weight: bold;
+  color: var(--minima-link-color);
+  text-decoration: none;
+}
+
+.publication-details {
+  margin-top: 0.5em;
+  color: var(--minima-text-color);
+}
+
+.publication-details div {
+  margin-bottom: 0.5em;
+}
+
+.iframe-container {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%;
+  /* 16:9 aspect ratio */
+  height: 0;
+  overflow: hidden;
+}
+
+.iframe-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+// resume 
+
+.base-information {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: $spacing-unit;
+}
+
+.profile-picture {
+  width: 180px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 1rem;
+  border: 4px solid #333;
+}
