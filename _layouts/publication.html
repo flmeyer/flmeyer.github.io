@@ -1,57 +1,63 @@
 ---
-layout: page 
+layout: base
 ---
+{% assign venue_lower = page.published_in | downcase %}
+{% if venue_lower contains 'dissertation' %}
+  {% assign pub_type = 'Thesis' %}
+  {% assign bib_type = 'phdthesis' %}
+{% elsif venue_lower contains 'thesis' %}
+  {% assign pub_type = 'Thesis' %}
+  {% assign bib_type = 'mastersthesis' %}
+{% elsif venue_lower contains 'transaction' or venue_lower contains 'journal' or venue_lower contains 'letter' %}
+  {% assign pub_type = 'Journal' %}
+  {% assign bib_type = 'article' %}
+{% else %}
+  {% assign pub_type = 'Conference' %}
+  {% assign bib_type = 'inproceedings' %}
+{% endif %}
 
-<style>
-  .publication-stats {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    align-items: center;
-    margin-bottom: 20px;
-  }
-  .stat {
-    display: flex;
-    align-items: center;
-  }
-  .stat-icon {
-    font-size: 20px;
-    margin-right: 8px;
-  }
-  .stat-text {
-    font-size: 16px;
-  }
-</style>
+{% assign first_author = page.authors | split: ', ' | first %}
+{% assign author_parts = first_author | split: ' ' %}
+{% assign bib_key = author_parts | last | downcase | append: page.year %}
+{% assign ob = '{' %}
+{% assign cb = '}' %}
 
-<div class="publication-stats">
-  <div class="stat">
-    <i class="stat-icon fas fa-users"></i>
-    <span class="stat-text">{{ page.authors }}</span>
+{% capture bibtex %}@{{ bib_type }}{{ ob }}{{ bib_key }},
+  author    = {{ ob }}{{ page.authors }}{{ cb }},
+  title     = {{ ob }}{{ page.title }}{{ cb }},
+{%- if bib_type == 'phdthesis' or bib_type == 'mastersthesis' %}
+  school    = {{ ob }}Hamburg University of Technology{{ cb }},
+{%- elsif bib_type == 'article' %}
+  journal   = {{ ob }}{{ page.published_in }}{{ cb }},
+{%- else %}
+  booktitle = {{ ob }}{{ page.published_in }}{{ cb }},
+{%- endif %}
+  year      = {{ ob }}{{ page.year }}{{ cb }}
+{{ cb }}{% endcapture %}
+
+<div class="page-c">
+  <canvas class="net-canvas" aria-hidden="true"></canvas>
+  <div class="wrap-c">
+    <a class="c-back-btn" href="/publications/">← Publications</a>
+    <div><span class="c-type-badge">{{ pub_type }}</span></div>
+    <h1 class="c-detail-title">{{ page.title }}</h1>
+    <div class="c-detail-authors">
+      {% assign author_list = page.authors | split: ', ' %}
+      {% for author in author_list %}{% if author contains 'Florian Meyer' %}<strong>{{ author }}</strong>{% else %}{{ author }}{% endif %}{% unless forloop.last %}, {% endunless %}{% endfor %}
+    </div>
+    <div class="c-detail-venue">{{ page.published_in }} · {{ page.month }} {{ page.year }}</div>
+    {% if page.link or page.doi %}
+    <div class="c-detail-links">
+      {% if page.link %}<a class="c-dlink" href="{{ page.link }}" target="_blank" rel="noopener noreferrer">↗ PDF</a>{% endif %}
+      {% if page.doi %}<a class="c-dlink" href="https://doi.org/{{ page.doi }}" target="_blank" rel="noopener noreferrer">↗ {{ page.doi }}</a>{% endif %}
+    </div>
+    {% endif %}
+    {% if content and content != '' %}
+    <div class="c-detail-abstract">{{ content }}</div>
+    {% endif %}
+    <details class="c-bibtex-details">
+      <summary class="c-bibtex-toggle">BibTeX</summary>
+      <pre class="c-bibtex">{{ bibtex }}</pre>
+    </details>
   </div>
-  <div class="stat">
-    <i class="stat-icon fas fa-book"></i>
-    <span class="stat-text">{{ page.published_in }}</span>
-  </div>
-  <div class="stat">
-    <i class="stat-icon fas fa-calendar"></i>
-    <span class="stat-text">{{ page.month }} {{ page.year }}</span>
-  </div>
-  {% if page.link %}
-  <div class="stat">
-    <i class="stat-icon fas fa-file"></i>
-    <span class="stat-text"><a href="{{ page.link }}" target="_blank">PDF</a></span>
-  </div>
-  {% endif %}
-  {% if page.doi %}
-  <div class="stat">
-    <i class="stat-icon fas fa-file"></i>
-    <span class="stat-text"><a href="https://doi.org/{{ page.doi }}" target="_blank"> {{ page.doi }} </a></span>
-  </div>
-  {% endif %}
 </div>
-
-<div style="text-align: justify; margin-top: 3em">
-  {{ content }}
-</div>
-
-<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>

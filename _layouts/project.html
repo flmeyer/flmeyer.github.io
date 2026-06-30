@@ -1,0 +1,22 @@
+---
+layout: base
+---
+<div class="page-c">
+  <canvas class="net-canvas" aria-hidden="true"></canvas>
+  <div class="wrap-c">
+    <a class="c-back-btn" href="/projects/">← Projects</a>
+    {% if page.tech %}<div><span class="c-type-badge">{{ page.tech }}</span></div>{% endif %}
+    <h1 class="c-detail-title">{{ page.title }}</h1>
+    {% if page.tagline %}<div class="c-detail-authors">{{ page.tagline }}</div>{% endif %}
+    <div class="c-detail-venue">{% if page.role %}{{ page.role }} · {% endif %}{{ page.year }}</div>
+    {% if content and content != '' %}
+    <div class="c-detail-abstract">{{ content }}</div>
+    {% endif %}
+    {% if page.link != '' or page.repo != '' %}
+    <div class="c-detail-links">
+      {% if page.link != '' %}<a class="c-dlink" href="{{ page.link }}" target="_blank" rel="noopener noreferrer">↗ Live</a>{% endif %}
+      {% if page.repo != '' %}<a class="c-dlink" href="{{ page.repo }}" target="_blank" rel="noopener noreferrer">↗ Source</a>{% endif %}
+    </div>
+    {% endif %}
+  </div>
+</div>
